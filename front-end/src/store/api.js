@@ -1,12 +1,7 @@
-import Axios from 'axios';
-
-var axios = Axios.create({
-	baseURL: 'http://localhost:3001/api',
-	timeout: 1000,
-});
+import axios from 'axios';
 
 const api = (method, url, data) => {
-	url = `${url}`;
+	url = `api/${url}`;
     // const headers = { Authorization: `Bearer ${localStorage.token}` };
     const headers = {}
 	console.log("HERE");
