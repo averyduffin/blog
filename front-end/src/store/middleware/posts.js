@@ -5,8 +5,11 @@ const middleware = (store) => (next) => (action) => {
     const { type } = action;
     switch(type){
         case GET_POSTS: {
-            store.dispatch(postsRecieved());
-            api();
+            api('get', '/articles', {}).then(res => {
+                store.dispatch(postsRecieved(res.data));
+            }).catch(err => {
+                console.log(err);
+            })
             break;
         }
         default:
